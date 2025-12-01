@@ -74,26 +74,46 @@ Predict annual coffee production for major producing nations to support:
 - **Exports more predictive than domestic consumption**: International trade dynamics crucial
 - **Feature importance varies by model**: Different models capture different aspects of production dynamics
 
-## 📁 Project Structure
+## 📁 Project Structure & Reproducibility
 
 ```
 coffee_or_tea/
-├── data/
-│   └── psd_coffee.csv              # Raw USDA data (85,937 rows, 94 countries)
-├── figures/                        # High-resolution visualizations (300 dpi)
-│   ├── production_trends.png       # Time series trends by country
-│   ├── correlation_heatmap.png    # Feature correlation analysis
-│   ├── autocorrelation_brazil.png # Temporal dependency validation
-│   ├── prediction_vs_actual.png   # Model predictions vs actual values
-│   ├── shap_summary.png           # SHAP feature importance
-│   ├── model_performance_comparison.png  # Model benchmarking
+├── data/                            # Raw and preprocessed data
+│   └── psd_coffee.csv               # Raw USDA PSD coffee data
+├── figures/                         # All generated figures (300 dpi)
+│   ├── production_trends.png        # Time series trends by country
+│   ├── correlation_heatmap.png      # Feature correlation analysis
+│   ├── autocorrelation_brazil.png   # Temporal dependency validation
+│   ├── fig1_dist_comparison.png     # Target distribution (original vs log)
+│   ├── prediction_vs_actual.png     # Model predictions vs actual values
+│   ├── shap_summary.png             # SHAP feature importance
+│   ├── model_performance_comparison.png      # Model benchmarking
 │   └── comprehensive_feature_importance.png  # Three-method comparison
-├── results/
-│   └── model_comparison.csv        # Detailed model performance metrics
-├── src/
-│   └── coffee_production_pipeline.ipynb  # Complete analysis pipeline
+├── results/                         # Model outputs and metrics
+│   └── model_comparison.csv         # Cross-validated performance summary
+├── report/                          # Final report (PDF and any LaTeX sources)
+├── src/                             # Source code and notebooks
+│   └── coffee_production_pipeline.ipynb
+├── .gitignore
+├── LICENSE                          # Project license (MIT)
+├── requirements.txt                 # Python package requirements (pip)
+├── environment.yml                  # Conda environment for full reproducibility
 └── README.md
 ```
+
+### Environment & Versions
+
+- **Python version**: 3.10 (tested)
+- **Environment file**: `environment.yml` (conda)  
+  - Provides exact Python version and all required packages so others can recreate the environment with:
+
+```bash
+conda env create -f environment.yml
+conda activate coffee_or_tea
+```
+
+- **Package requirements (pip)**: `requirements.txt`
+  - Mirrors the same dependencies for users who prefer `venv` + `pip`.
 
 ## 🚀 Quick Start
 
